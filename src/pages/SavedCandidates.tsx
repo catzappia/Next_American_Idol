@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 
+interface Candidate {
+  id: string;
+  name: string;
+}
+
 const SavedCandidates = () => {
-  const [savedCandidatesArray, setSavedCandidatesArray] = useState<any[]>([]);
+  const [savedCandidatesArray, setSavedCandidatesArray] = useState<Candidate[]>([]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -20,7 +25,7 @@ const SavedCandidates = () => {
     <>
       <h1>Potential Candidates</h1>
       <ul>
-        {savedCandidatesArray.map((candidate: any) => (
+        {savedCandidatesArray.map((candidate: Candidate) => (
           <li key={candidate.id}>{candidate.name}</li>
         ))}
       </ul>
