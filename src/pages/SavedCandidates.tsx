@@ -1,20 +1,20 @@
+import { useState, useEffect } from 'react';
+
 const SavedCandidates = () => {
-  let savedCandidatesArray = [];
-  if (typeof window !== 'undefined') {
-    const savedCandidates = localStorage.getItem('savedCandidates');
-    console.log(savedCandidates);
-    try {
-      savedCandidatesArray = savedCandidates ? JSON.parse(savedCandidates) : [];
-    } catch (error) {
-      console.error('Error parsing saved candidates:', error);
+  const [savedCandidatesArray, setSavedCandidatesArray] = useState<any[]>([]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedCandidates = localStorage.getItem('savedCandidates');
+      console.log(savedCandidates);
+      try {
+        const parsedCandidates = savedCandidates ? JSON.parse(savedCandidates) : [];
+        setSavedCandidatesArray(parsedCandidates);
+      } catch (error) {
+        console.error('Error parsing saved candidates:', error);
+      }
     }
-    console.log(savedCandidatesArray);
-    if (savedCandidatesArray.length > 0) {
-      savedCandidatesArray.forEach((candidate: any) => {
-        console.log(candidate);
-      });
-    }
-  }
+  }, []);
 
   return (
     <>
