@@ -11,8 +11,10 @@ const CandidateSearch = () => {
   }, []);
 
   useEffect(() => {
-    searchGithubUser('username').then((data) => console.log(data));
-  }, []);
+    if (query) {
+      searchGithubUser(query).then((data) => console.log(data));
+    }
+  }, [query]);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
@@ -24,7 +26,13 @@ const CandidateSearch = () => {
       <input value={query} onChange={handleSearch} />
       <ul>
         {results.map((candidate) => (
-          <li key={candidate.id}>{candidate.name}</li>
+          <li key={candidate.id}>
+            <img src={candidate.avatar} alt={candidate.name} />
+            <a href={candidate.html_url}>{candidate.name}</a>
+            <p>{candidate.location}</p>
+            <p>{candidate.company}</p>
+            <p>{candidate.email}</p>
+          </li>
         ))}
       </ul>
     </div>

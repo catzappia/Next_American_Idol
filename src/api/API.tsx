@@ -2,6 +2,9 @@ const searchGithub = async () => {
   try {
     const start = Math.floor(Math.random() * 100000000) + 1;
     // console.log(import.meta.env);
+    if (!import.meta.env.VITE_GITHUB_TOKEN) {
+      throw new Error('GitHub token is not defined');
+    }
     const response = await fetch(
       `https://api.github.com/users?since=${start}`,
       {
