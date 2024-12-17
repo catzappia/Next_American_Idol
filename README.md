@@ -14,8 +14,8 @@ An application to find your next start job candidate using Github.
 
 ## Usage
 
-![the error page that is served on load](Develop/assets/error.png)
-![the errors in the console](Develop/assets/console.png)
+![the error page that is served on load](src/assets/error.png)
+![the errors in the console](src/assets/console.png)
 
 ## Credits
 
