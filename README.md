@@ -13,6 +13,7 @@ An application to find your next start job candidate using Github.
 
 
 ## Usage
+https://next-american-idol.onrender.com
 
 ![the error page that is served on load](src/assets/error.png)
 ![the errors in the console](src/assets/console.png)
